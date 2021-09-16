@@ -1,1 +1,23 @@
-<p>album works!</p>
+<div class="album">
+  <div class="album__wrapper">
+    <div class="album__card-elements">
+      <div class="card" *ngFor="let item of items">
+        <app-card-element [item]="item"></app-card-element>
+      </div>
+    </div>
+    <div class="album__filters">
+      <div class="row">
+        <app-dropdown-filter [config]="filterByGenres"></app-dropdown-filter>
+      </div>
+      <div class="row">
+        <app-dropdown-filter [config]="filterByYear"></app-dropdown-filter>
+      </div>
+      <div class="row">
+        <app-input-filter [config]="filterByArtist" (searchTerm)="onFilterByArtist($event)"></app-input-filter>
+      </div>
+      <div class="row">
+        <app-input-filter [config]="filterByTitle" (searchTerm)="onFilterByTitle($event)"></app-input-filter>
+      </div>
+    </div>
+  </div>
+</div>

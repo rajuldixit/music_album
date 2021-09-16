@@ -1,0 +1,43 @@
+.album {
+    width: 100%;
+    margin: 0 auto;
+    &__wrapper {
+      display: flex;
+      padding: 10px 10px;
+      width:100%;
+    }
+    &__filters {
+      width:30%;
+      padding: 10px;
+    }
+    &__card-elements {
+      width:70%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 13vw);
+      align-items: center;
+      margin: 0 auto;
+      .card {  
+        width: 95%;
+        padding: 0 0 10px 0;
+      }
+    }
+
+  @media screen and (max-width: 1366px) {
+    &__card-elements {
+      grid-template-rows: repeat(4, 18vw);
+    }
+  } 
+  @media screen and (max-width: 1024px) {
+    &__card-elements {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 40vw);
+    }
+  }
+  @media screen and (max-width: 414px) {
+    &__card-elements {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, 65vw);
+    }
+  }  
+}

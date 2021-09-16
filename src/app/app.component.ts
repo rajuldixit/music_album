@@ -7,8 +7,4 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent {
   title = 'music-album';
-
-  constructor(private dataService : DataService) {
-    this.dataService.fetch();
-  }
 }

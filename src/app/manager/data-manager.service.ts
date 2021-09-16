@@ -9,14 +9,15 @@ import { Observable } from 'rxjs';
 export class DataManager {
   private genreList: Genres = {id:0, name: ''};
   private videos: Videos[] = new Array<Videos>();
-  
+
   constructor(private dataService: DataService) { }
 
   retrieveData() {
    return new Promise((resolve, reject) => {
       this.dataService.fetch().then(response => {
           let videos = this.formatData(response.data);
-          resolve(videos);
+          let data = {genres: response.data.genres, videos: videos}
+          resolve(data);
         })
         .catch(err => {
           reject({ "error :": err });
