@@ -1,7 +1,7 @@
 import { FilterAlbumManager } from './../../manager/filterAlbum/filter-album.service';
 import { DataManager } from './../../manager/data-manager/data-manager.service';
 import { Component, OnInit } from '@angular/core';
-import { Items, FilterationTypes, FilterationKeys } from './album.interface';
+import { Items, FilterationTypes, FilterationKeys, LoadingState, IllustrationMessages } from './album.interface';
 
 @Component({
   selector: 'app-album',
@@ -15,6 +15,8 @@ export class AlbumComponent implements OnInit {
   loadingState: string;
   filterationType: FilterationTypes;
   filterationKeys: FilterationKeys;
+  pageTitle: string;
+  illustrationString: string;
 
   constructor(private dataManager: DataManager, private filterAlbumManager: FilterAlbumManager) {}
 
@@ -24,7 +26,9 @@ export class AlbumComponent implements OnInit {
   }
 
   init() {
-    this.loadingState = 'default';
+    this.loadingState = LoadingState.LOADING;
+    this.pageTitle = 'Album';
+    this.illustrationString = '';
     this.showIllustration = false;
     this.items =  new Array<Items>();
     this.album = new Array<Items>();
@@ -45,6 +49,7 @@ export class AlbumComponent implements OnInit {
   retrieveData() {
     this.dataManager.retrieveData().then(response => {
       if(response) {
+        this.loadingState = LoadingState.SUCCESS;
         this.filterationType.genres = {
           singleSelection: false,
           placeholder: 'Select Genre',
@@ -64,7 +69,16 @@ export class AlbumComponent implements OnInit {
         if(Object.keys(response['videos']).length > 0) {
           this.items = Object.values(response['videos']);
           this.album = Object.values(response['videos']);
+          this.showIllustration = false;
+          this.illustrationString = '';
+        } else {
+          this.showIllustration = true;
+          this.illustrationString = IllustrationMessages.NO_RECORD_FOUND;
         }
+      } else {
+        this.loadingState = LoadingState.FAILED;
+        this.showIllustration = true;
+        this.illustrationString = IllustrationMessages.SOMETHING_WENT_WRONG;
       }
     });
   }

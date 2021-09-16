@@ -1,4 +1,7 @@
 <div class="album">
+  <header>
+    <span>{{pageTitle}}</span>
+  </header>
   <div class="album__wrapper">
     <div class="album__card-elements">
       <div class="card" *ngFor="let item of items">
@@ -19,5 +22,8 @@
         <app-input-filter [config]="filterationType.title" (searchTerm)="onFilterByTitle($event)"></app-input-filter>
       </div>
     </div>
+  </div>
+  <div *ngIf="LoadingState === ''">
+    <span>{{illustrationString}}</span>
   </div>
 </div>

@@ -30,3 +30,15 @@ export interface FilterationKeys {
   year: number,
   genres: Array<string>
 }
+
+export enum LoadingState {
+  LOADING = 'LOADING',
+  DEFAULT = 'DEFAULT',
+  SUCCESS = 'SUCCESS',
+  FAILED = 'FAILED'
+}
+
+ export enum IllustrationMessages {
+   SOMETHING_WENT_WRONG = 'SOMETHING WENT WRONG',
+   NO_RECORD_FOUND = 'NO RECORD FOUND'
+ }
