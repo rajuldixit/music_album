@@ -17,6 +17,7 @@ export class AlbumComponent implements OnInit {
   filterationKeys: FilterationKeys;
   pageTitle: string;
   illustrationString: string;
+  showMobileFilters:boolean;
 
   constructor(private dataManager: DataManager, private filterAlbumManager: FilterAlbumManager) {}
 
@@ -28,6 +29,7 @@ export class AlbumComponent implements OnInit {
   init() {
     this.loadingState = LoadingState.LOADING;
     this.pageTitle = 'Album';
+    this.showMobileFilters = false;
     this.illustrationString = '';
     this.showIllustration = false;
     this.items =  new Array<Items>();
@@ -83,6 +85,9 @@ export class AlbumComponent implements OnInit {
     });
   }
 
+  showHideFilter() {
+    this.showMobileFilters = !this.showMobileFilters;
+  }
   getYears(list) {
     let releasingYear = new Array();
     let uniqueYears = [...new Set(list.map(item => item.releaseYear))];

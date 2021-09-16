@@ -1,4 +1,4 @@
-export interface Content {
+export interface Card {
   id: number;
   artist: string,
   title: string,

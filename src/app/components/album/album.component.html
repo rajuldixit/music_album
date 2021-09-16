@@ -1,6 +1,27 @@
 <div class="album">
   <header>
-    <span>{{pageTitle}}</span>
+    <div class="display-flex">
+      <span>{{pageTitle}}</span>
+      <div class="hamburger-icon" (click)="showHideFilter()">
+        <img src="./../../../assets/icons/menu.svg">
+      </div>
+    </div>
+    <div class="filters-mobile-view" *ngIf="showMobileFilters === true">
+      <div class="filters">
+      <div class="row">
+        <app-dropdown-filter [config]="filterationType.genres" (selectedItem)="onFilterByGenres($event)"></app-dropdown-filter>
+      </div>
+      <div class="row">
+        <app-dropdown-filter [config]="filterationType.year" (selectedItem)="onFilterByYear($event)"></app-dropdown-filter>
+      </div>
+      <div class="row">
+        <app-input-filter [config]="filterationType.artist" (searchTerm)="onFilterByArtist($event)"></app-input-filter>
+      </div>
+      <div class="row">
+        <app-input-filter [config]="filterationType.title" (searchTerm)="onFilterByTitle($event)"></app-input-filter>
+      </div>
+    </div>
+    </div>
   </header>
   <div class="album__wrapper">
     <div class="album__card-elements">
@@ -23,7 +44,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="LoadingState === ''">
+  <div *ngIf="showIllustration === true">
     <span>{{illustrationString}}</span>
   </div>
 </div>

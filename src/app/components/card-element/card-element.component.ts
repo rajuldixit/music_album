@@ -1,4 +1,4 @@
-import { Content } from './card-element.interface';
+import { Card } from './card-element.interface';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardElementComponent implements OnInit {
 
-  @Input() item: Content;
+  @Input() item: Card;
+  card: Card;
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this.item) {
+      this.card = this.item;
+    }
+  }
 
 }

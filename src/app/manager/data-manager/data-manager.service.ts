@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataManager {
-  private genreList: Genres = {id:0, name: ''};
+  private genreList: {} = {};
   private videos: Videos[] = new Array<Videos>();
 
   constructor(private dataService: DataService) { }
@@ -26,8 +26,10 @@ export class DataManager {
 
   formatData(responses) {
     let genres = this.generateGenresList(responses.genres);
-    let videos = this.generateVideosList(responses.videos, genres);
-    return videos;
+    if(genres) {
+      let videos = this.generateVideosList(responses.videos, genres);
+      return videos;
+    }
   }
 
   generateGenresList(genres) {

@@ -6,12 +6,25 @@
         height: 24px;
         background: #c2bcd6;
         margin-bottom: 20px;
-        span {
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            padding-left: 20px;
-            padding-top: 5px;
+        .display-flex {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            span {
+                color: #fff;
+                font-size: 18px;
+                font-weight: bold;
+                padding-left: 20px;
+                padding-top: 5px;
+            }
+            .hamburger-icon {
+                display: none;
+            }
+        }
+        .filters-mobile-view {
+            display: none;
+            width: 100%;
+            height: 300px;
         }
     }
     &__wrapper {
@@ -43,13 +56,46 @@
     @media screen and (max-width: 1024px) {
         &__card-elements {
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 40vw);
+            grid-template-rows: repeat(2, 22vw);
+        }
+        &__filters {
+            width: 40%;
+            padding-right: 20px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        &__card-elements {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 30vw);
+        }
+        &__filters {
+            width: 40%;
+            padding-right: 20px;
         }
     }
     @media screen and (max-width: 414px) {
         &__card-elements {
             grid-template-columns: repeat(1, 1fr);
             grid-template-rows: repeat(1, 65vw);
+        }
+        &__filters {
+            display: none;
+        }
+        header {
+            .display-flex {
+                .hamburger-icon {
+                    display: block;
+                    padding-right: 20px;
+                }
+            }
+            .filters-mobile-view {
+                display: block;
+                background: #cac5;
+                position: absolute;
+                .filters {
+                    display: block;
+                }
+            }
         }
     }
 }

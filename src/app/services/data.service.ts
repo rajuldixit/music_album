@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import axios  from 'axios';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class DataService {
   private baseUrl: string = environment.api.base_url;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
   fetch() {
     return axios.get(this.baseUrl).then( response => {

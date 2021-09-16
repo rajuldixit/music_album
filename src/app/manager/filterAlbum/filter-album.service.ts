@@ -50,6 +50,7 @@ export class FilterAlbumManager {
     });
     return newList;
   }
+
   formFilterByObject(keys) {
     let filterBy = {};
     if(keys.artist !== '') {
@@ -62,11 +63,6 @@ export class FilterAlbumManager {
       filterBy['releaseYear'] = keys.year;
     }
     return filterBy;
-  }
-
-  getUniqueItems(album) {
-    let uniqueAlbum = [...new Set(album.map(item => item))];
-    return uniqueAlbum;
   }
 
   filterByGenres(genres, list) {
