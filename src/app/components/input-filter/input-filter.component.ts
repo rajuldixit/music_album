@@ -13,7 +13,7 @@ export class InputFilterComponent implements OnInit, OnChanges {
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.config.currentValue) {
-      this.placeholder = changes.config.currentValue.title;
+      this.placeholder = changes.config.currentValue.placeholder;
     }
   }
 

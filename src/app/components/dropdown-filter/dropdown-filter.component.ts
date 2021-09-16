@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown-filter',
@@ -8,37 +8,37 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 export class DropdownFilterComponent implements OnInit,  OnChanges {
 
   @Input() config : any;
+  @Output() selectedItem = new EventEmitter();
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.config.currentValue) {
       this.dropdownList = this.config.data;
       this.dropdownSettings = {
-        singleSelection: this.config.multi,
-        text:this.config.title,
+        singleSelection: this.config.singleSelection,
+        text:this.config.placeholder,
       }
     }
   }
-  dropdownList = [];
-  selectedItems = [];
-  dropdownSettings = {};
 
   ngOnInit(){
     this.dropdownSettings = {enableSearchFilter: true};
   }
+
   onItemSelect(item:any){
-      console.log(item);
-      console.log(this.selectedItems);
+    this.selectedItem.emit(this.selectedItems);
   }
   OnItemDeSelect(item:any){
-      console.log(item);
-      console.log(this.selectedItems);
+    this.selectedItem.emit(this.selectedItems);
   }
   onSelectAll(items: any){
-      console.log(items);
+    this.selectedItem.emit(this.selectedItems);
   }
   onDeSelectAll(items: any){
-      console.log(items);
+    this.selectedItem.emit(this.selectedItems);
   }
 
 }

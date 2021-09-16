@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataService } from './data.service';
+import { FilterAlbumManager } from './filter-album.service';
 
-describe('DataService', () => {
-  let service: DataService;
+describe('FilterAlbumManager', () => {
+  let service: FilterAlbumManager;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataService);
+    service = TestBed.inject(FilterAlbumManager);
   });
 
   it('should be created', () => {

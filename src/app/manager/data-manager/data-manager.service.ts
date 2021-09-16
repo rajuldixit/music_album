@@ -1,7 +1,6 @@
 import { Genres, Videos } from './data.interface';
-import { DataService } from './../services/data.service';
+import { DataService } from './../../services/data.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
