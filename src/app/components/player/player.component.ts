@@ -6,11 +6,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  @Input() item: any;
+  @Input() selectedAlbum: any;
   @Output() goBack = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.selectedAlbum);
   }
 
   onGoBack() {

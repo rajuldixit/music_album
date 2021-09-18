@@ -1,5 +1,5 @@
 <div class="grid grid-cols-3 grid-rows-4 gap-4 mt-4">
-  <div class="card rounded-full" *ngFor="let item of items"  (click)="onSelectCard(item)">
+  <div class="card rounded-full cursor-pointer" *ngFor="let item of items"  (click)="onSelectCard(item)">
     <app-card-element [item]="item"></app-card-element>
   </div>
 </div>
