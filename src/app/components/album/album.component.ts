@@ -18,15 +18,37 @@ export class AlbumComponent implements OnInit {
   pageTitle: string;
   illustrationString: string;
   showMobileFilters:boolean;
+  selectedAlbum:Items;
+  showGallery: boolean;
 
   constructor(private dataManager: DataManager, private filterAlbumManager: FilterAlbumManager) {}
 
   ngOnInit(): void {
+    this.handleEventListeners();
     this.init();
     this.retrieveData();
   }
 
+  handleEventListeners() {
+    const btn = document.querySelector(".mobile-menu-button");
+    const sidebar = document.querySelector(".sidebar");
+    // add our event listener for the click
+    btn.addEventListener("click", () => {
+      sidebar.classList.toggle("-translate-x-full");
+    });
+  }
+
   init() {
+    this.selectedAlbum = {
+      id: 0,
+      artist: '',
+      title: '',
+      releaseYear: '',
+      genreId: 0,
+      imageUrl: '',
+      genreName: ''
+    }
+    this.showGallery = true;
     this.loadingState = LoadingState.LOADING;
     this.pageTitle = 'Album';
     this.showMobileFilters = false;
@@ -163,5 +185,15 @@ export class AlbumComponent implements OnInit {
   updateItems(newAlbum) {
     this.items = new Array();
     this.items = newAlbum;
+  }
+
+  onSelectAlbum(e) {
+    this.selectedAlbum = e;
+    console.log(this.selectedAlbum);
+    this.showGallery = false;
+  }
+
+  onShowGallery(e) {
+    this.showGallery = e;
   }
 }

@@ -1,50 +1,51 @@
-<div class="album">
-  <header>
-    <div class="display-flex">
-      <span>{{pageTitle}}</span>
-      <div class="hamburger-icon" (click)="showHideFilter()">
-        <img src="./../../../assets/icons/menu.svg">
-      </div>
+<div class="relative min-h-screen md:flex">
+  <!-- mobile menu bar -->
+  <div class="bg-yellow-500 text-gray-100 flex justify-between md:hidden">
+    <!-- logo -->
+    <div class="w-40 flex justify-center">
+      <img class="h-5 w-5 mt-4" src="./../../../assets/icons/music.svg">
+      <a href="#" class="block p-4 text-white font-bold">Music Album</a>
     </div>
-    <div class="filters-mobile-view" *ngIf="showMobileFilters === true">
-      <div class="filters">
-      <div class="row">
-        <app-dropdown-filter [config]="filterationType.genres" (selectedItem)="onFilterByGenres($event)"></app-dropdown-filter>
-      </div>
-      <div class="row">
-        <app-dropdown-filter [config]="filterationType.year" (selectedItem)="onFilterByYear($event)"></app-dropdown-filter>
-      </div>
-      <div class="row">
-        <app-input-filter [config]="filterationType.artist" (searchTerm)="onFilterByArtist($event)"></app-input-filter>
-      </div>
-      <div class="row">
-        <app-input-filter [config]="filterationType.title" (searchTerm)="onFilterByTitle($event)"></app-input-filter>
-      </div>
-    </div>
-    </div>
-  </header>
-  <div class="album__wrapper">
-    <div class="album__card-elements">
-      <div class="card" *ngFor="let item of items">
-        <app-card-element [item]="item"></app-card-element>
-      </div>
-    </div>
-    <div class="album__filters">
-      <div class="row">
-        <app-dropdown-filter [config]="filterationType.genres" (selectedItem)="onFilterByGenres($event)"></app-dropdown-filter>
-      </div>
-      <div class="row">
-        <app-dropdown-filter [config]="filterationType.year" (selectedItem)="onFilterByYear($event)"></app-dropdown-filter>
-      </div>
-      <div class="row">
-        <app-input-filter [config]="filterationType.artist" (searchTerm)="onFilterByArtist($event)"></app-input-filter>
-      </div>
-      <div class="row">
-        <app-input-filter [config]="filterationType.title" (searchTerm)="onFilterByTitle($event)"></app-input-filter>
-      </div>
-    </div>
+    <!-- mobile menu button -->
+    <button class="mobile-menu-button p-4 focus:outline-none focus:bg-yellow-700">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
   </div>
-  <div *ngIf="showIllustration === true">
-    <span>{{illustrationString}}</span>
+
+  <div class="sidebar z-50 bg-yellow-500 text-white w-48 px-5 py-2 space-y-6 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+    <div class="w-40 flex justify-center">
+      <img class="h-5 w-5 mt-4" src="./../../../assets/icons/music.svg">
+      <a href="#" class="block p-4 text-white font-bold">Music Album</a>
+    </div>
+    <nav>
+      <a href="#" class="block py-2.6 px-4 text-gray-50 rounded transition duration-200 hover:bg-white hover:text-yellow-400">Home</a>
+      <a href="#" class="block py-2.6 px-4 text-gray-50 rounded transition duration-200 hover:bg-white hover:text-yellow-400">Browse</a>
+
+      <hr class="px-4 mt-5 mb-5">
+
+      <a href="#" class="block py-2.6 px-4 text-gray-50 rounded transition duration-200 hover:bg-white hover:text-yellow-400">Genres</a>
+      <a href="#" class="block py-2.6 px-4 text-gray-50 rounded transition duration-200 hover:bg-white hover:text-yellow-400">Artist</a>
+
+      <hr class="px-4 mt-5 mb-5">
+    </nav>
+  </div>
+  <div class="flex-1">
+    <div class="header md:flex bg-blue-500 p-4 sm:hidden justify-end">
+      <img class="h-5 w-5 mr-4 mt-2" src="./../../../assets/icons/settings.svg">
+      <img class="h-5 w-5 mr-4 mt-2" src="./../../../assets/icons/notifications.svg">
+      <div class="user-icon mt-0.5 mr-4 border-2 p-1 rounded-full">
+        <img class="h-5 w-5" src="./../../../assets/icons/user.svg">
+      </div>
+    </div>
+    <div class="main-container p-4">
+      <div class="gallery" *ngIf="showGallery">
+        <app-gallery [items]="items" (selectedCard)="onSelectAlbum($event)"></app-gallery>
+      </div>
+      <div class="player" *ngIf="!showGallery">
+        <app-player [selectedAlbum]="selectedAlbum" (goBack)="onShowGallery($event)"></app-player>
+      </div>
+    </div>
   </div>
 </div>

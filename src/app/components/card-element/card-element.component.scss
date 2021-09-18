@@ -1,13 +1,12 @@
 .card {
     width: 100%;
     padding: 0 0 10px 0;
-    border: 0.5px solid #f1e7e7;
-    border-radius: 8px;
+    // border: 0.5px solid #f1e7e7;
+    // border-radius: 8px;
     &__image-url {
-        width: 100%;
+        width: 120px;
         object-fit: cover;
-        height: 130px;
-        border-radius: 8px 8px 0 0;
+        height: 120px;
     }
     span {
         display: block;
@@ -15,6 +14,7 @@
         width: 150px;
         white-space: nowrap;
         overflow: hidden;
+        font-size: 12px;
         text-overflow: ellipsis;
     }
 }

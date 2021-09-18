@@ -6,13 +6,17 @@ import { AlbumComponent } from './album/album.component';
 import { CardElementComponent } from './card-element/card-element.component';
 import { DropdownFilterComponent } from './dropdown-filter/dropdown-filter.component';
 import { InputFilterComponent } from './input-filter/input-filter.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
     AlbumComponent,
     DropdownFilterComponent,
     InputFilterComponent,
-    CardElementComponent
+    CardElementComponent,
+    GalleryComponent,
+    PlayerComponent
   ],
   exports: [
     CommonModule,
