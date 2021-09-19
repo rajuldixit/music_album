@@ -198,18 +198,21 @@ export class AlbumComponent implements OnInit {
   }
 
   onShowGallery(e) {
+    this.items = this.album;
     this.updateFlags('gallery');
   }
 
   getUniqueGenres() {
     let genres = [...new Set(this.album.map(item => item.genreName))];
     this.content = this.imageMapName.imagesMapWithGenreNames(genres);
+    this.content[this.content.length] = 'genre';
     this.updateFlags('genreArtist');
   }
 
   getUniqueArtistList() {
     let artist = [...new Set(this.album.map(item => item.artist))];
     this.content = this.imageMapName.imageMapWithArtists(artist);
+    this.content[this.content.length] = 'artist';
     this.updateFlags('genreArtist');
   }
 
@@ -226,6 +229,23 @@ export class AlbumComponent implements OnInit {
       this.showGallery = false;
       this.showGenreArtist = true;
       this.showPlayer = false;
+    }
+  }
+
+  onSelectGenreOrArtist(e) {
+    if(e.key === 'genre') {
+      let genres = new Array();
+      this.items = new Array();
+      let obj = {
+        id: 1, itemName: e.value.name
+      };
+      genres.push(obj);
+      this.items = this.filterAlbumManager.filterByGenres(genres, this.album);
+      this.updateFlags('gallery');
+    } else if(e.key === 'artist') {
+      this.items = new Array();
+      this.items = this.filterAlbumManager.filterByArtist(e.value.name, this.album);
+      this.updateFlags('gallery');
     }
   }
 }

@@ -49,7 +49,7 @@
         <app-gallery [items]="items" (selectedCard)="onSelectAlbum($event)"></app-gallery>
       </div>
       <div class="genre-artist" *ngIf="showGenreArtist">
-        <app-genre-artist-card [items]="content"></app-genre-artist-card>
+        <app-genre-artist-card [items]="content" (selectedItem)="onSelectGenreOrArtist($event)"></app-genre-artist-card>
       </div>
       <div class="player" *ngIf="showPlayer">
         <app-player [selectedAlbum]="selectedAlbum" (goBack)="onShowGallery($event)"></app-player>

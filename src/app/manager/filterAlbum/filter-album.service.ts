@@ -78,4 +78,9 @@ export class FilterAlbumManager {
     });
     return allItems;
   }
+
+  filterByArtist(artist, list) {
+    let records = list.filter(item => item.artist === artist)
+    return records;
+  }
 }
