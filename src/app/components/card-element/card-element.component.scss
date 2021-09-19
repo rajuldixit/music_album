@@ -21,4 +21,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .favorite {
+        svg path {
+            stroke: #fff !important;
+            fill: red !important;
+        }
+    }
 }

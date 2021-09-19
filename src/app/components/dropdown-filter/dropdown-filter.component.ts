@@ -25,7 +25,7 @@ export class DropdownFilterComponent implements OnInit,  OnChanges {
   }
 
   ngOnInit(){
-    this.dropdownSettings = {enableSearchFilter: true};
+    this.dropdownSettings = {enableSearchFilter: true, classes:"custom-dropdown-style"};
   }
 
   onItemSelect(item:any){
