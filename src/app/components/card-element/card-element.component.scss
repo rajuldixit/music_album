@@ -1,18 +1,24 @@
 .card {
     width: 100%;
-    padding: 0 0 10px 0;
+    padding: 10px;
+    box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+    -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+    -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+    border-radius: 8px;
     &__image-url {
-        width: 120px;
+        width: 100%;
+        box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
         object-fit: cover;
         height: 120px;
+        border-radius: 8px;
     }
     span {
         display: block;
-        padding: 5px;
         width: 150px;
         white-space: nowrap;
         overflow: hidden;
-        font-size: 12px;
         text-overflow: ellipsis;
     }
 }

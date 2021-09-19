@@ -8,6 +8,7 @@ import { DropdownFilterComponent } from './dropdown-filter/dropdown-filter.compo
 import { InputFilterComponent } from './input-filter/input-filter.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { PlayerComponent } from './player/player.component';
+import { GenreArtistCardComponent } from './genre-artist-card/genre-artist-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PlayerComponent } from './player/player.component';
     InputFilterComponent,
     CardElementComponent,
     GalleryComponent,
-    PlayerComponent
+    PlayerComponent,
+    GenreArtistCardComponent
   ],
   exports: [
     CommonModule,

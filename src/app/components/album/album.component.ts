@@ -1,3 +1,4 @@
+import { ImageMapNameManager } from './../../manager/image-map-with-name/image-map-name.service';
 import { FilterAlbumManager } from './../../manager/filterAlbum/filter-album.service';
 import { DataManager } from './../../manager/data-manager/data-manager.service';
 import { Component, OnInit } from '@angular/core';
@@ -20,8 +21,11 @@ export class AlbumComponent implements OnInit {
   showMobileFilters:boolean;
   selectedAlbum:Items;
   showGallery: boolean;
+  showGenreArtist: boolean;
+  showPlayer: boolean;
+  content: Array<string>;
 
-  constructor(private dataManager: DataManager, private filterAlbumManager: FilterAlbumManager) {}
+  constructor(private dataManager: DataManager, private filterAlbumManager: FilterAlbumManager, private imageMapName: ImageMapNameManager) {}
 
   ngOnInit(): void {
     this.handleEventListeners();
@@ -47,7 +51,8 @@ export class AlbumComponent implements OnInit {
       genreId: 0,
       imageUrl: '',
       genreName: ''
-    }
+    };
+    this.content = new Array();
     this.showGallery = true;
     this.loadingState = LoadingState.LOADING;
     this.pageTitle = 'Album';
@@ -189,11 +194,38 @@ export class AlbumComponent implements OnInit {
 
   onSelectAlbum(e) {
     this.selectedAlbum = e;
-    console.log(this.selectedAlbum);
-    this.showGallery = false;
+    this.updateFlags('player');
   }
 
   onShowGallery(e) {
-    this.showGallery = e;
+    this.updateFlags('gallery');
+  }
+
+  getUniqueGenres() {
+    let genres = [...new Set(this.album.map(item => item.genreName))];
+    this.content = this.imageMapName.imagesMapWithGenreNames(genres);
+    this.updateFlags('genreArtist');
+  }
+
+  getUniqueArtistList() {
+    let artist = [...new Set(this.album.map(item => item.artist))];
+    this.content = artist;
+    this.updateFlags('genreArtist');
+  }
+
+  updateFlags(name) {
+    if(name === 'gallery') {
+      this.showGallery = true;
+      this.showGenreArtist = false;
+      this.showPlayer = false;
+    } else if(name === 'player') {
+      this.showGallery = false;
+      this.showGenreArtist = false;
+      this.showPlayer = true;
+    } else if(name === 'genreArtist') {
+      this.showGallery = false;
+      this.showGenreArtist = true;
+      this.showPlayer = false;
+    }
   }
 }
