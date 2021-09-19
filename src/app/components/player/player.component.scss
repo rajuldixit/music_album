@@ -13,20 +13,25 @@
         border-radius: 50%
     }
     &__content-wrapper {
-        box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
-        -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
-        -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
-        border-radius: 8px;
-        padding: 10px;
         height: 300px;
-        .selected-album {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
+        .image-wrapper {
             box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
             -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
             -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
             border-radius: 8px;
+            padding: 10px;
+            .selected-album {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+                -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+                -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+                border-radius: 8px;
+            }
+        }
+        .album-info {
+            padding-left: 5%;
         }
         .audio-track {
             .track {

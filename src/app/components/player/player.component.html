@@ -4,12 +4,21 @@
   </div>
 
   <div class="player__content-wrapper">
-  <img src="{{selectedAlbum.imageUrl}}" class="selected-album">
-  <div class="audio-track flex mt-10 justify-center items-center">
-    <img src="./../../../assets/icons/play.svg" class="h-8 w-8">
-    <span class="track">
-      <span class="range"></span>
-    </span>
-  </div>
+    <div class="flex">
+      <div class="image-wrapper"><img src="{{selectedAlbum.imageUrl}}" class="selected-album"></div>
+
+      <div class="album-info">
+        <span class="text-base font-bold text-gray-500 block mb-2">{{selectedAlbum.artist}}</span>
+        <span class="text-base font-bold text-gray-500 block mb-2">{{selectedAlbum.title}}</span>
+        <span class="text-base font-bold text-gray-500 block mb-2">{{selectedAlbum.genreName}}</span>
+        <span class="text-base font-bold text-gray-500 block mb-2">{{selectedAlbum.releaseYear}}</span>
+      </div>
+    </div>
+    <div class="audio-track flex mt-10 justify-center items-center">
+      <img src="./../../../assets/icons/play.svg" class="h-8 w-8">
+      <span class="track">
+        <span class="range"></span>
+      </span>
+    </div>
   <div>
 </div>
