@@ -1,4 +1,6 @@
-<div class="" *ngFor="let item of items">
-  <span>{{item}}</span>
-  <img src="./../../../assets/icons/menu.svg">
+<div class="grid grid-cols-4 grid-rows-4 gap-4 mt-4">
+  <div class="card" *ngFor="let item of items">
+    <img src="{{item.imageURL}}" class="card__image-url">
+    <span class="font-bold text-gray-600 text-sm pl-2 pt-4">{{item.name}}</span>
+  </div>
 </div>

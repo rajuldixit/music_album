@@ -11,11 +11,13 @@ export class ImageMapNameManager {
     console.log(list)
     let genreCardData = new Array();
     list.forEach(element => {
-      let card = {
-        name: element,
-        imageURL: this.getImageUrl(element)
+      if(element !== 'anonymous') {
+        let card = {
+          name: element,
+          imageURL: this.getImageUrl(element)
+        }
+        genreCardData.push(card);
       }
-      genreCardData.push(card);
     });
     return genreCardData;
   };
@@ -84,7 +86,7 @@ export class ImageMapNameManager {
         break;
 
       case 'Soundtracks':
-        baseUrl = baseUrl + 'Soundtracks.png';
+        baseUrl = baseUrl + 'Soundtracks.jpg';
         break;
 
       case 'World/Roots':
@@ -92,7 +94,7 @@ export class ImageMapNameManager {
         break;
 
       case 'Reggae':
-        baseUrl = baseUrl + 'Reggae.png';
+        baseUrl = baseUrl + 'Reggae.jpg';
         break;
     }
     return baseUrl;

@@ -1,0 +1,32 @@
+.player {
+    &__go-back-icon {
+        box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        border-radius: 8px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+        border-radius: 50%
+    }
+    &__content-wrapper {
+        box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+        border-radius: 8px;
+        padding: 10px;
+        height: 300px;
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+            -webkit-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+            -moz-box-shadow: 1px 5px 9px 0px rgba(199, 172, 172, 0.75);
+            border-radius: 8px;
+        }
+    }
+}
