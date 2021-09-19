@@ -209,7 +209,7 @@ export class AlbumComponent implements OnInit {
 
   getUniqueArtistList() {
     let artist = [...new Set(this.album.map(item => item.artist))];
-    this.content = artist;
+    this.content = this.imageMapName.imageMapWithArtists(artist);
     this.updateFlags('genreArtist');
   }
 

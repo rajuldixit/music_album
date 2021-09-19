@@ -5,10 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class ImageMapNameManager {
 
-  constructor() { }
+  artistCoverImages: Array<string> = new Array();
+  constructor() {
+    this.initImageList();
+  }
+
+  initImageList() {
+    this.artistCoverImages = [
+      "cover1.jpg",
+      "cover2.jpg",
+      "cover3.jpeg",
+      "cover 4.jfif",
+      "cover5.jfif",
+      "cover6.jfif"
+    ]
+  }
 
   imagesMapWithGenreNames(list) {
-    console.log(list)
     let genreCardData = new Array();
     list.forEach(element => {
       if(element !== 'anonymous') {
@@ -98,5 +111,22 @@ export class ImageMapNameManager {
         break;
     }
     return baseUrl;
+  }
+
+  imageMapWithArtists(list) {
+    let artistCardData = new Array();
+    list.forEach(element => {
+      let imageUrl = './../../../assets/images/'+this.artistCoverImages[this.getRandomNumber()];
+      let card = {
+        name: element,
+        imageURL: imageUrl
+      }
+      artistCardData.push(card);
+    });
+    return artistCardData;
+  }
+
+  getRandomNumber() {
+    return Math.floor(Math.random() * 5 + 1);
   }
 }

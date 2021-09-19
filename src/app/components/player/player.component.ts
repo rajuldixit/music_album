@@ -11,7 +11,6 @@ export class PlayerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.selectedAlbum);
   }
 
   onGoBack() {

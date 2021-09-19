@@ -11,7 +11,10 @@ export class GenreArtistCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.items);
+  }
+
+  onSelectItem(e) {
+
   }
 
 }
