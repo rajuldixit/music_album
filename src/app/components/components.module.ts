@@ -9,6 +9,9 @@ import { InputFilterComponent } from './input-filter/input-filter.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { PlayerComponent } from './player/player.component';
 import { GenreArtistCardComponent } from './genre-artist-card/genre-artist-card.component';
+import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { RegistartionComponent } from './registartion/registartion.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,18 @@ import { GenreArtistCardComponent } from './genre-artist-card/genre-artist-card.
     CardElementComponent,
     GalleryComponent,
     PlayerComponent,
-    GenreArtistCardComponent
+    GenreArtistCardComponent,
+    LoginComponent,
+    LandingPageComponent,
+    RegistartionComponent
   ],
   exports: [
     CommonModule,
     AlbumComponent,
     DropdownFilterComponent,
     InputFilterComponent,
-    CardElementComponent
+    CardElementComponent,
+    LandingPageComponent
   ],
   imports: [
     CommonModule,

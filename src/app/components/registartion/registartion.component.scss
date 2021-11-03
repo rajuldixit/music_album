@@ -1,0 +1,42 @@
+.registration-form-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    .input-field {
+        padding-left: 5%;
+        margin-top: 10px;
+        input {
+            width: 100%;
+            height: 40px;
+            padding-left: 10px;
+            outline: none;
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        button {
+            padding: 5px 20px;
+            box-shadow: 2px 2px 5px 0px rgba(194, 189, 189, 0.75);
+            -webkit-box-shadow: 2px 2px 5px 0px rgba(194, 189, 189, 0.75);
+            -moz-box-shadow: 2px 2px 5px 0px rgba(194, 189, 189, 0.75);
+            border-radius: 4px;
+            margin: 2px;
+            outline: none;
+            font-size: 18px;
+        }
+        button:active {
+            box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+            transform: translateY(2px);
+            /* Moving button 4px to y-axis */
+        }
+        .active {
+            background-color: #fed000;
+            color: #6a5959;
+        }
+        .cancel {
+            color: #6a5959;
+        }
+    }
+}

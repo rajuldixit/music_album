@@ -1,0 +1,18 @@
+<div class="landing-form-wrapper">
+  <div class="form-wrapper">
+    <div class="toggle-form">
+      <div class="switch-button">
+        <input class="switch-button-checkbox" type="checkbox" (click)="toggleForm()">
+        <label class="switch-button-label" for="" id="switch-button" ><span class="switch-button-label-span">Login</span></label>
+      </div>
+    </div>
+    <div class="forms">
+      <div class="form" *ngIf="showLogin">
+        <app-login></app-login>
+      </div>
+      <div class="form" *ngIf="!showLogin">
+        <app-registartion></app-registartion>
+      </div>
+    </div>
+  </div>
+</div>
